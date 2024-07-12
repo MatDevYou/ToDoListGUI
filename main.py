@@ -11,8 +11,12 @@ def add():
     else:
         messagebox.showwarning("Attenzione", "Per favore, inserisci una task")
 
-#def remove():
-
+def remove():
+    try:
+        select = listbox.curselection()[0]
+        listbox.delete(select)
+    except:
+        messagebox.showwarning("Attenzione", "Per favore, seleziona una task da eliminare")
 
 #def save ():
 
@@ -43,6 +47,10 @@ EntryTask.pack(pady=10)
 #bottone per aggiungere le task
 ButtonAdd = Button(main, text="Aggiungi Task", command=add)
 ButtonAdd.pack(pady=5)
+
+#bottone per rimuovere le task
+ButtonRemove = Button(main, text="Elimina Task", command=remove)
+ButtonRemove.pack(pady=5)
 
 # Creazione della Listbox prima del ciclo principale
 listbox = Listbox(main, width=50, height=25)
