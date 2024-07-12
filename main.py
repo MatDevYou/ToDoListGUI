@@ -18,8 +18,13 @@ def remove():
     except:
         messagebox.showwarning("Attenzione", "Per favore, seleziona una task da eliminare")
 
-#def save ():
-
+def save ():
+    task = listbox.get(0, END)
+    with open("tasks.txt", "w") as file:
+        for item in task:
+            file.write(item + "\n")
+    messagebox.showinfo("Salvataggio", "Task salvate correttamente")
+    
 
     
 
@@ -51,6 +56,11 @@ ButtonAdd.pack(pady=5)
 #bottone per rimuovere le task
 ButtonRemove = Button(main, text="Elimina Task", command=remove)
 ButtonRemove.pack(pady=5)
+
+#bottone per salvare le task su file
+ButtonSave = Button(main, text="Salva Task", command=save)
+ButtonSave.pack(pady=5)
+
 
 # Creazione della Listbox prima del ciclo principale
 listbox = Listbox(main, width=50, height=25)
