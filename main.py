@@ -3,6 +3,19 @@ from tkinter import Listbox
 
 main = Tk()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 # titolo finestra
 main.title("ToDoList") 
 
