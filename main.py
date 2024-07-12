@@ -2,8 +2,16 @@ from tkinter import *
 from tkinter import Listbox
 from tkinter import messagebox
 
-
 def add():
+    '''
+    Variabili:
+    - task: contiene il testo inserito dall'utente
+    
+    Funzionalità:
+    Permette all'utente di inserire un'attività nella lista. Se il campo di input non è vuoto, 
+    l'attività viene aggiunta alla listbox e il campo di input viene cancellato. 
+    Se il campo di input è vuoto, viene mostrato un messaggio di avviso.
+    '''
     task = EntryTask.get()
     if task != "":
         listbox.insert(END, task)
@@ -11,30 +19,40 @@ def add():
     else:
         messagebox.showwarning("Attenzione", "Per favore, inserisci una task")
 
+# Funzione per rimuovere l'attività selezionata dalla lista
 def remove():
+    '''
+    Variabili:
+    - select: contiene l'indice dell'attività selezionata nella listbox
+    
+    Funzionalità:
+    Permette all'utente di rimuovere un'attività selezionata dalla lista. Se un'attività è 
+    selezionata, viene rimossa dalla listbox. Se nessuna attività è selezionata, viene mostrato 
+    un messaggio di avviso.
+    '''
     try:
         select = listbox.curselection()[0]
         listbox.delete(select)
     except:
         messagebox.showwarning("Attenzione", "Per favore, seleziona una task da eliminare")
 
-def save ():
+# Funzione per salvare le attività in un file
+def save():
+    '''
+    Variabili:
+    - task: contiene tutte le attività presenti nella listbox
+    
+    Funzionalità:
+    Permette all'utente di salvare tutte le attività presenti nella lista in un file di testo 
+    chiamato "tasks.txt". Ogni attività viene scritta su una nuova riga del file. Dopo il salvataggio, 
+    viene mostrato un messaggio di conferma.
+    '''
     task = listbox.get(0, END)
     with open("tasks.txt", "w") as file:
         for item in task:
             file.write(item + "\n")
     messagebox.showinfo("Salvataggio", "Task salvate correttamente")
     
-
-    
-
-
-
-
-
-
-
-
 
 
 main = Tk()
