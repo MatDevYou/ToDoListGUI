@@ -61,7 +61,7 @@ main = Tk()
 main.title("ToDoList") 
 
 # dimensioni finestra
-main.geometry("900x600")
+main.geometry("900x650")
 
 #widget per inserire le task
 EntryTask = Entry(main, width=50)
