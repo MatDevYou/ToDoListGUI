@@ -67,7 +67,6 @@ main.geometry("900x600")
 EntryTask = Entry(main, width=50)
 EntryTask.pack(pady=10)
 
-
 #bottone per aggiungere le task
 ButtonAdd = Button(main, text="Aggiungi Task", command=add)
 ButtonAdd.pack(pady=5)
